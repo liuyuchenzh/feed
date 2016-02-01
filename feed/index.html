@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feed</title>
+  <meta charset="utf-8">
+  <meta http-equiv="U-XA-Compatible" content="ie=edge">
+  <meta name="render" content="webkit">
+  <script src="scripts/feed.js"></script>
+  <link rel="stylesheet" href="styles/feed.css">
+  <style>
+  body {
+    font-family: "Microsoft YaHei", Arial;
+  }
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+  input,
+  textarea {
+    box-sizing: border-box;
+    width: 200px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+  }
+  input:focus,
+  textarea:focus {
+    box-shadow: inset 0 1px 2px #ddd;
+    outline: none;
+  }
+  textarea {
+    vertical-align: top;
+    resize: none;
+  }
+  button {
+    background: white;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.1));
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    text-shadow: 1px 1px 1px #ccc;
+    box-shadow: 0 1px 3px #888;
+    cursor: pointer;
+  }
+  button:active {
+    box-shadow: inset 0 1px 3px #888;
+  }
+  </style>
+</head>
+<body>
+  <form id="feedForm">
+    <p>
+      <label for="userName">
+        Username:
+      </label>
+      <input id="userName" name="userName" type="text">
+    </p>
+    <p>
+      <label for="content">
+        Content:
+      </label>
+      <textarea id="content" name="content" rows="5"></textarea>
+    </p>
+    <p>
+      <button id="btn" type="submit">Submit</button>
+    </p>
+  </form>
+  <div id="feed"></div>
+  <script>
+  window.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("feedForm");
+    form.addEventListener("submit", function(e) {
+      // no server interaction for now
+      // even if there is, should be ajax
+      e.preventDefault();
+      var data = {};
+      for (var i = 0; i < form.elements.length; i++) {
+        var field = form.elements[i];
+        if (field.name) {
+          data[field.name] = field.value;
+        }
+      }
+      feed.create(document.getElementById("feed"), data);
+      // reset content
+      form.elements["content"].value = "";
+    }, false);
+  }, false);
+  </script>
+</body>
+</html>

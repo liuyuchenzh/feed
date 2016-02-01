@@ -1,0 +1,45 @@
+.yuchen-feed {
+  display: flex;
+  font-family: "Microsoft YaHei", Arial;
+  box-shadow: 0 1px 8px #ccc;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+}
+.yuchen-feed-side {
+  flex-basis: 10%;
+}
+.yuchen-feed-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  line-height: 2;
+}
+.yuchen-feed a {
+  text-decoration: none;
+  color: black;
+}
+/* round profile pic */
+.yuchen-feed-profile-pic a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+/* end round profile pic */
+/* bolden font-weight of userName */
+.yuchen-feed-name {
+  font-weight: bold;
+}
+/* end bolden font-weight of userName */
+/* content */
+.yuchen-feed-content p {
+  margin: 0;
+  word-wrap: break-word;
+}
+/* content */
+/* tail */
+.yuchen-feed-tail p {
+  margin: 0;
+  font-size: 0.8em;
+  color: #aaa;
+}
+/* tail */
